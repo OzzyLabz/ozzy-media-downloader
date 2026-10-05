@@ -2,6 +2,8 @@
 
 [Русский](README.ru.md) · English
 
+**[Download the app for Intel and Apple Silicon (ZIP)](https://github.com/OzzyLabz/ozzy-media-downloader/releases/download/v1.0/Ozzy-Media-Downloader-1.0-universal.zip)**
+
 ![Media Downloader window](screenshot.png)
 
 A macOS desktop app that lists available video and audio formats for a link and saves the selected format to a chosen folder. The downloaded application is named `Программа скачивания.app`. The interface uses Swift and AppKit. The app runs bundled `yt-dlp`, `ffmpeg`, and `deno` executables.
@@ -24,7 +26,7 @@ The bundle includes `deno` as the JavaScript runtime for YouTube support. The of
 
 ## Installation and first launch
 
-When a verified GitHub Release archive is available, extract it and move `Программа скачивания.app` to a convenient location, such as Applications. The app is signed ad hoc and is not notarized. macOS may require you to allow its first launch in **System Settings → Privacy & Security**. See [Apple's instructions](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
+Download the GitHub Release archive, extract it and move `Программа скачивания.app` to a convenient location, such as Applications. The app is signed ad hoc and is not notarized. macOS may require you to allow its first launch in **System Settings → Privacy & Security**. See [Apple's instructions](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
 
 ## Usage
 
