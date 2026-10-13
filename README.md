@@ -1,48 +1,48 @@
 # Ozzy Media Downloader
 
-[Русский](README.ru.md) · English
+[English](README.en.md) · Русский
 
-**[Download the app for Intel and Apple Silicon (ZIP)](https://github.com/OzzyLabz/ozzy-media-downloader/releases/download/v1.0/Ozzy-Media-Downloader-1.0-universal.zip)**
+**[Скачать приложение для Intel и Apple Silicon (ZIP)](https://github.com/OzzyLabz/ozzy-media-downloader/releases/download/v1.0/Ozzy-Media-Downloader-1.0-universal.zip)**
 
-![Media Downloader window](screenshot.png)
+![Окно программы скачивания](screenshot.png)
 
-A macOS desktop app that lists available video and audio formats for a link and saves the selected format to a chosen folder. The downloaded application is named `Программа скачивания.app`. The interface uses Swift and AppKit. The app runs bundled `yt-dlp`, `ffmpeg`, and `deno` executables.
+Настольное приложение для macOS, которое показывает доступные варианты видео и аудио по ссылке и сохраняет выбранный вариант в указанную папку. Скачиваемое приложение называется «Программа скачивания.app». Интерфейс написан на Swift и AppKit. Для получения медиа приложение запускает вложенные `yt-dlp`, `ffmpeg` и `deno`.
 
-## Features
+## Возможности
 
-- Analyze an HTTP or HTTPS link for its title, thumbnail, MP4 and MP3 options, and subtitles.
-- Choose MP4 quality or extract audio as MP3. Converting to MP3 does not improve the source audio quality.
-- Request manual or automatic subtitles when available, with an option to embed them in video.
-- Queue up to 10 simultaneous downloads, view progress, and cancel jobs.
-- Keep the app available in the menu bar after closing its window, until choosing “Закрыть программу” (Quit).
+- Анализ ссылки HTTP или HTTPS: название, превью, доступные варианты MP4 и MP3, субтитры.
+- Выбор качества MP4 или извлечение аудио в MP3. MP3 создаётся конвертацией и не улучшает качество исходного звука.
+- Ручные и автоматические субтитры, если они доступны у источника; для видео можно запросить их встраивание.
+- Очередь до 10 одновременных загрузок, ход выполнения и отмена задач.
+- При закрытии окна программа остаётся доступной через строку меню, пока её не завершат командой «Закрыть программу».
 
-Formats, subtitles, and downloads depend on the source. A site may reject a download even after formats appear during analysis. Download only material you have the right to use.
+Доступность форматов, субтитров и самой загрузки зависит от источника. Приложение показывает варианты, найденные при анализе, но сайт может отклонить последующий запрос. Скачивайте материалы, на использование которых у вас есть право.
 
-## Requirements and verification status
+## Системные требования и состояние проверки
 
-The single `.app` contains `x86_64` and `arm64` code. Its main executable targets **macOS 13.0 or later**. That minimum was checked in the binary; it does not prove successful operation on every macOS release. Build, launch, and the initial 1280 × 720 window size were checked on Intel. Testing of the updated build on Apple Silicon is still pending.
+Одна `.app` содержит код для `x86_64` и `arm64`. Для основного исполняемого файла задан минимум **macOS 13.0**. Это значение проверено в бинарнике, но само по себе не подтверждает работу на каждой версии macOS. На Intel проверены сборка, запуск и начальный размер окна 1280 × 720. Проверка обновлённой сборки на Apple Silicon ещё не завершена.
 
-The bundle includes `deno` as the JavaScript runtime for YouTube support. The official `yt-dlp_macos` executable includes `yt-dlp-ejs`. YouTube support also depends on changes made by YouTube and on the connection.
+Для работы с YouTube вложен JavaScript runtime `deno`; соответствующий код `yt-dlp-ejs` входит в официальный `yt-dlp_macos`. Поддержка YouTube зависит также от изменений на стороне YouTube и состояния соединения.
 
-## Installation and first launch
+## Установка и первый запуск
 
-Download the GitHub Release archive, extract it and move `Программа скачивания.app` to a convenient location, such as Applications. The app is signed ad hoc and is not notarized. macOS may require you to allow its first launch in **System Settings → Privacy & Security**. See [Apple's instructions](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
+Скачайте архив GitHub Release, распакуйте его и перенесите `Программа скачивания.app` в удобную папку, например «Программы». Приложение имеет только ad hoc подпись и не нотариализовано. При первом запуске macOS может потребовать подтверждения в **Системные настройки → Конфиденциальность и безопасность**. Подробности: [инструкция Apple](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
 
-## Usage
+## Использование
 
-1. Paste a link and click “Анализировать” (Analyze).
-2. Choose a format and destination folder.
-3. Optionally enable subtitles and select a language. If subtitle requests are limited by the source, try downloading without subtitles.
-4. Click “Скачать” (Download). The job appears in the lower part of the window.
+1. Вставьте ссылку и нажмите «Анализировать».
+2. Выберите предложенный формат и папку сохранения.
+3. При необходимости включите субтитры и выберите язык. Если источник ограничивает запросы субтитров, попробуйте загрузить видео без них.
+4. Нажмите «Скачать». Состояние задачи появится в нижней части окна.
 
-`HTTP 429: Too Many Requests` means the source limited requests. The error text can indicate whether it affected video or subtitles. See the [yt-dlp FAQ](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#http-error-429-too-many-requests-or-402-payment-required).
+Ошибка `HTTP 429: Too Many Requests` означает, что источник ограничил запросы. По тексту ошибки можно определить, относился ли отказ к видео или к субтитрам. Подробности приведены в [FAQ yt-dlp](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#http-error-429-too-many-requests-or-402-payment-required).
 
-## Source and build
+## Исходники и сборка
 
-App source is in `Sources/`; assets are in `Resources/`. See [BUILDING.md](BUILDING.md) for the build and required input files. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for bundled tools and their licensing status.
+Исходники приложения находятся в `Sources/`, ресурсы — в `Resources/`. Скрипт и необходимые входные файлы описаны в [BUILDING.ru.md](BUILDING.ru.md). Состав вложенных инструментов и статус их лицензий приведены в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-**Binary release documentation:** [release-docs/README.md](release-docs/README.md) describes the bundled notices. [SOURCE_REFERENCES.md](release-docs/SOURCE_REFERENCES.md) lists tool downloads, version-specific source references and supplier build scripts.
+**Документы бинарного релиза:** [release-docs/README.md](release-docs/README.md) описывает комплект уведомлений. В [SOURCE_REFERENCES.md](release-docs/SOURCE_REFERENCES.md) приведены загрузки инструментов, ссылки на исходники конкретных версий и скрипты сборки поставщика.
 
-## License
+## Лицензия
 
-Copyright (c) 2026 OzzyLabz. The original application code and documentation use the custom [Noncommercial Use License 1.0](LICENSE). Use, modification and redistribution are permitted exclusively for noncommercial purposes. Selling the application or using the covered materials to earn income or obtain commercial benefit requires separate written permission. Third-party components retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Copyright (c) 2026 OzzyLabz. Оригинальный код приложения и документация распространяются по собственной [Лицензии некоммерческого использования 1.0](LICENSE). Использование, изменение и распространение разрешены исключительно для некоммерческих целей. Продажа программы или использование охватываемых материалов для получения дохода либо коммерческой выгоды требует отдельного письменного разрешения. Сторонние компоненты сохраняют собственные лицензии: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
