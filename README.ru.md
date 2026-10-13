@@ -1,6 +1,6 @@
 # Ozzy Media Downloader
 
-[English](README.md) · Русский
+[English](README.en.md) · Русский
 
 **[Скачать приложение для Intel и Apple Silicon (ZIP)](https://github.com/OzzyLabz/ozzy-media-downloader/releases/download/v1.0/Ozzy-Media-Downloader-1.0-universal.zip)**
 
